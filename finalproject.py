@@ -43,7 +43,7 @@ def showRestaurants():
 	return render_template('restaurants.html', restaurants = restaurants)
 
 # ADD A NEW RESTAURANT
-@app.route("/restaurant/new/",methods = ['GET','POST'])
+@app.route("/restaurant/new/", methods = ['GET','POST'])
 def newRestaurant():
 	if request.method == 'POST':
 		newRestaurant = Restaurant(name = request.form['name'])
@@ -51,7 +51,7 @@ def newRestaurant():
 		session.commit()
 		return redirect(url_for('showRestaurants'))
 	else:
-		return render_template("newRestaurant.html")
+		return render_template('newRestaurant.html')
 
 # EDIT A RESTAURANT
 @app.route("/restaurant/<int:restaurant_id>/edit/", methods = ['GET','POST'])
